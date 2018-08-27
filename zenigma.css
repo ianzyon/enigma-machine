@@ -1,0 +1,52 @@
+.card {
+    min-height: 64%;
+  
+}
+.lightbulbs {
+    margin-top: 50px;
+}
+.btn-lightbulb {
+    background : #3C3C46;
+    background : rgba(60, 60, 70, 1);
+    color : #FFFFFF;
+    color : rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 150%;
+    margin: 2px;
+    
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    
+}
+.active, .btn-lightbulb:active {
+    color : rgb(255, 255, 30);
+}
+.output-cipher {
+    margin: auto;
+    min-height: 80px;
+    max-width: 500px;
+}
+.output-cipher p {
+    text-transform: uppercase;
+    font-size: 19;
+    font-weight: 800;
+    transform: translateY(+90%);
+    color : #009245;
+
+}
+.output-plaintext {
+    margin: auto;
+    min-height: 80px;
+    max-width: 500px;
+}
+.output-plaintext p {
+    text-transform: uppercase;
+    font-size: 19;
+    transform: translateY(+90%);
+    color: gray;
+
+}
+.btn-clear {
+    margin: 20px;
+}
