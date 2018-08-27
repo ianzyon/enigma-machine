@@ -292,14 +292,14 @@ const App = (function(EnigmaController, UiController){
 
                 cipherText += cipherKey;
                 plainText += key;
-                console.log(cipherText);
+                
                 UiController.printTexts(cipherText, plainText);
             }
     };
     const cipherClickPrint = function(e) {
         e = e || window.event;
         if( e.target.value != null){
-            console.log(e.target.value);
+            
 
             key = e.target.value.toUpperCase();
 
@@ -312,7 +312,7 @@ const App = (function(EnigmaController, UiController){
 
                 cipherText += cipherKey;
                 plainText += key;
-                console.log(cipherText);
+               
                 UiController.printTexts(cipherText, plainText);
             }
         }
@@ -329,7 +329,7 @@ const App = (function(EnigmaController, UiController){
     };
     // Configurar modo cifra e decifra
     const modeConfig = function(e) {
-        console.log('clicked', e.target.myParam);
+        
         EnigmaController.changeMode(e.target.myParam);
     };
     //
