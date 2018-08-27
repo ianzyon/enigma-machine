@@ -299,7 +299,8 @@ const EnigmaController = (function() {
                 R3: R3,
                 FAST: FAST,
                 MID: MID,
-                SLO: SLO
+                SLO: SLO,
+                mode: modeState
             }
         }
     }
@@ -320,7 +321,9 @@ const UiController = (function() {
         configButton: '#configRotors',
         clearButton: '#clearOutput',
         cipherOutput: '#outputCipher',
-        textOutput: '#outputPlainText'
+        textOutput: '#outputPlainText',
+        cipherRadio: '#cipherRadio',
+        decipherRadio: '#decipherRadio',
     }
     const createLightbulbs = function(){
         let html = ``;
@@ -374,8 +377,15 @@ const App = (function(EnigmaController, UiController){
     const LoadEventListeners = function() {
         const UiSelectors = UiController.getSelectors();
         //Botoes
-        document.querySelector(UiSelectors.configButton).addEventListener('click', rotorsManualConfig)
-        document.querySelector(UiSelectors.clearButton).addEventListener('click', UiController.clearOutputs)
+        document.querySelector(UiSelectors.configButton).addEventListener('click', rotorsManualConfig);
+        document.querySelector(UiSelectors.clearButton).addEventListener('click', UiController.clearOutputs);
+
+        document.querySelector(UiSelectors.cipherRadio).addEventListener('click',modeConfig);
+        document.querySelector(UiSelectors.cipherRadio).myParam = 'cipher';
+
+        document.querySelector(UiSelectors.decipherRadio).addEventListener('click', modeConfig);
+        document.querySelector(UiSelectors.decipherRadio).myParam = 'decipher';
+
         //Switches
         //Form config
 
@@ -414,6 +424,11 @@ const App = (function(EnigmaController, UiController){
         EnigmaController.newConfig(f,m,s);
 
     };
+    // Configurar modo cifra e decifra
+    const modeConfig = function(e) {
+        console.log('clicked', e.target.myParam);
+        EnigmaController.changeMode(e.target.myParam);
+    }
     // func Resetar Estado do App
     const resetState = function() {
 
